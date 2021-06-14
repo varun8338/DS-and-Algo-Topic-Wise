@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/myhiber</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		
+		<!-- dialect means language since we use mysql db, 
+		all the queries will be fired in accordance to mysql format -->
+		<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+		
+		<!-- allows automatic creation of table, if there is
+		no table then it creates one or else it updates the same -->
+		 <!-- <property name="hbm2ddl.auto">update</property>  -->
+		
+		<!-- deletes the existing table and creates once again -->
+		<property name="hbm2ddl.auto">update</property>
+		
+		<!-- shows the sql quries which were fired -->
+		<property name="show_sql">true</property>
+		
+		<!-- formats the sql queries -->
+		<property name="format_sql">true</property>
+		<property name="cache.use_second_level_cache">true</property>
+		<property name="cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
+		<!-- maps the class to be treated as entity -->
+		
+		<mapping class="com.hibernate.map.Question"/>
+		<mapping class="com.hibernate.map.Answer"/>
+		<mapping class="com.hibernate.manytomany.Employee"/>
+		<mapping class="com.hibernate.manytomany.Role"/>
+		<mapping class="com.hql.Student"/>
+	</session-factory>
+</hibernate-configuration>

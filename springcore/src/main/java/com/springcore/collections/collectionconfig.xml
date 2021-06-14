@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ 	<!-- this is our bean it uses setter injection-->
+	<bean name="employee1" class="com.springcore.collections.Employee">
+		<property name="name" value="Varun" />
+		
+		<!-- the below property is a list type with only one value-->
+		<!-- <property name="phones" value="7506271715"/>	 -->
+		
+		
+		<!-- the below property is a list type-->
+		<property name="phones">
+			<list>
+				<value>7506271715</value>
+				<value>8898927075</value>
+				<value>3235234234</value>
+			</list>
+		</property>
+		
+		<!-- the below property is a set type-->
+		<property name="addresses">
+			<set>
+				<value>Bombay</value>
+				<value>Delhi</value>
+				<value>Lucknow</value>
+			</set>
+		</property>
+		
+		<!-- the below property is a map type-->
+		<property name="courses">
+			<map>
+				<entry key="Java" value="2months"/>
+				<entry key="Python" value="1.2months"/>
+				<entry key="GoLang" value="3months"/>
+			</map>
+		</property>
+		
+		<property name="dbConnection">
+			<props>
+				<prop key="dbName">Test</prop>
+				<prop key="user">vayadav</prop>
+				<prop key="password">123</prop>
+			</props>
+		</property>
+		
+	</bean>
+</beans>
